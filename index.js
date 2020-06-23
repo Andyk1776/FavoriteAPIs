@@ -39,8 +39,7 @@ app.get("/api/favoriteShows", function (req, res) {
 });
 
 app.get("/api/c/:id", function (req, res) {
-  var chosen = req.params.id;
-  chosen = parseInt(text, id);
+  var chosen = parseInt(req.params.id);
   console.log(chosen);
 
   for (var i = 0; i < favoriteShows.length; i++) {
@@ -50,6 +49,16 @@ app.get("/api/c/:id", function (req, res) {
   }
 
   return res.send("No shows found");
+});
+
+app.post("/api/favoriteShows", function (req, res) {
+  var newShow = req.body;
+
+  console.log(newShow);
+
+  favoriteShows.push(newShow);
+
+  res.json(newShow);
 });
 
 app.listen(PORT, function () {
