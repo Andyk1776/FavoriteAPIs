@@ -34,12 +34,13 @@ app.get("/", function (req, res) {
   res.send("Welcome to the favorite shows API!");
 });
 
-app.get("/api/favoriteshows", function (req, res) {
+app.get("/api/favoriteShows", function (req, res) {
   return res.json(favoriteShows);
 });
 
-app.get("/api/c/:favoriteShows", function (req, res) {
-  var chosen = req.params.favoriteShows;
+app.get("/api/c/:id", function (req, res) {
+  var chosen = req.params.id;
+  chosen = parseInt(text, id);
   console.log(chosen);
 
   for (var i = 0; i < favoriteShows.length; i++) {
